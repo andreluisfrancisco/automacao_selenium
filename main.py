@@ -80,3 +80,4 @@ if __name__ == "__main__":
     main()
 
 # TODO: Inserir testes com o PyTest
+# TODO: Melhorar a validação de erros
