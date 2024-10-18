@@ -4,7 +4,7 @@
 Este projeto é um script de automação que preenche um formulário web utilizando Selenium e captura evidências durante o processo. O objetivo é demonstrar minhas habilidades em RPA
 
 ## Estrutura do projeto
-- **`/formulario/`**: Contém os módulos que representam as páginas do formulário
+- **`/pages/`**: Contém os módulos que representam as páginas do formulário
 
 - **`main.py`**: Arquivo principal que inicializa o navegador, executa o fluxo de automação e gera evidências
 

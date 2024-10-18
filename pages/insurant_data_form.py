@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from formulario.base_form import BaseForm
+from pages.base_form import BaseForm
 
 class InsurantDataForm(BaseForm):
     FIRST_NAME = (By.ID, "firstname")
