@@ -10,7 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from pages import VehicleDataForm, InsurantDataForm
+from pages import VehicleDataPage, InsurantDataPage
 
 class FormularioAutomatizado:
     def __init__(self):
@@ -40,7 +40,7 @@ class FormularioAutomatizado:
             sys.exit(1)
 
     def preencher_dados_veiculo(self):
-        form_veiculo = VehicleDataForm(self.driver)
+        form_veiculo = VehicleDataPage(self.driver)
         form_veiculo.selecionar_marca("Audi")
         form_veiculo.preencher_performance_motor("440")
         time.sleep(1)
@@ -49,7 +49,7 @@ class FormularioAutomatizado:
         form_veiculo.clicar_proximo()
 
     def preencher_dados_usuario(self):
-        form_usuario = InsurantDataForm(self.driver)
+        form_usuario = InsurantDataPage(self.driver)
         form_usuario.preencher_primeiro_nome("Andre")
         form_usuario.preencher_ultimo_nome("Francisco")
         form_usuario.preencher_data_nascimento("02/11/1974")

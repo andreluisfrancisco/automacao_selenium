@@ -1,5 +1,5 @@
-from .vehicle_data_form import VehicleDataForm
-from .insurant_data_form import InsurantDataForm
-from .base_form import BaseForm
+from .vehicle_data_pages import VehicleDataPage
+from .insurant_data_pages import InsurantDataPage
+from .base_pages import BasePage
 
-__all__ = ["VehicleDataForm", "InsurantDataForm", "BaseForm"]
+__all__ = ["VehicleDataPage", "InsurantDataPage", "BasePage"]

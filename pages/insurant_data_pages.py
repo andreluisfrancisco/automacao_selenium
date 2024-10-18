@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
-from pages.base_form import BaseForm
+from automacao_selenium.pages.base_pages import BasePage
 
-class InsurantDataForm(BaseForm):
+class InsurantDataPage(BasePage):
     FIRST_NAME = (By.ID, "firstname")
     LAST_NAME = (By.ID, "lastname")
     BIRTHDATE = (By.ID, "birthdate")

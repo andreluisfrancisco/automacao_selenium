@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
-from pages.base_form import BaseForm
+from automacao_selenium.pages.base_pages import BasePage
 
-class VehicleDataForm(BaseForm):
+class VehicleDataPage(BasePage):
     MAKE_DROPDOWN = (By.ID, "make")
     ENGINE_PERFORMANCE = (By.ID, "engineperformance")
     NEXT_BUTTON = (By.ID, "nextenterinsurantdata")
