@@ -41,8 +41,25 @@ class FormularioAutomatizado:
 
     def preencher_dados_veiculo(self):
         form_veiculo = VehicleDataPage(self.driver)
-        form_veiculo.selecionar_marca("Audi")
-        form_veiculo.preencher_performance_motor("440")
+
+        marca = "Audi"
+        if not marca:
+            print("Marca não selecionada")
+            time.sleep(1)
+            self.gerar_evidencia("Erro de validação - Marca não selecionada")
+            sys.exit(1)
+        
+        form_veiculo.selecionar_marca(marca)
+
+        performance_motor = ""
+        if not performance_motor.isdigit() or int(performance_motor) <= 0:
+            print("Performance inválida")
+            time.sleep(1)
+            self.gerar_evidencia("Erro de validação - Performance inválida")
+            sys.exit(1)  
+        
+        form_veiculo.preencher_performance_motor(performance_motor)
+
         time.sleep(1)
         self.gerar_evidencia("Dados do veículo preenchidos")
         print("Preencheu os dados do veículo e passou para o próximo formulário.")
