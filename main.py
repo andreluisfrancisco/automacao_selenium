@@ -3,11 +3,13 @@ import sys
 import time
 import datetime
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
+from selenium.webdriver.firefox.service import Service as FFService
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from pages import VehicleDataPage, InsurantDataPage
@@ -17,8 +19,10 @@ class FormularioAutomatizado:
         self.driver = self._inicializar_driver()
 
     def _inicializar_driver(self):
-        service = Service(ChromeDriverManager().install())
-        return webdriver.Chrome(service=service)
+        options = FirefoxOptions()
+        #options.add_argument("--headless")  # remova se quiser ver o navegador
+        service = FFService(GeckoDriverManager().install())
+        return webdriver.Firefox(service=service, options=options)
     
     def gerar_evidencia(self, etapa):
         hora_evidencia = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -51,7 +55,7 @@ class FormularioAutomatizado:
         
         form_veiculo.selecionar_marca(marca)
 
-        performance_motor = ""
+        performance_motor = "1200"
         if not performance_motor.isdigit() or int(performance_motor) <= 0:
             print("Performance inválida")
             time.sleep(1)
